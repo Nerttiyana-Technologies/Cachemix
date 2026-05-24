@@ -16,7 +16,7 @@ jobs:
       # The .NET 10 SDK builds every target framework; the 8.0 and 9.0 SDKs are
       # installed so their runtimes are present for running the multi-targeted tests.
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: |
             8.0.x
