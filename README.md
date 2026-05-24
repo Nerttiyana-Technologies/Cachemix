@@ -34,10 +34,6 @@ Then browse to `/cachemix`.
 
 .NET 8, .NET 9, and .NET 10. Built and developed on the .NET SDK 10.0.300.
 
-## Documentation
-
-The full architecture and roadmap lives in
-[`docs/architecture-and-roadmap.md`](docs/architecture-and-roadmap.md).
 
 ## Contributing
 
