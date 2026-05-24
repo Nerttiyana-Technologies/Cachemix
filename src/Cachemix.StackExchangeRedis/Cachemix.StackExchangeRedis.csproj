@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>Cachemix.StackExchangeRedis</PackageId>
+    <Description>Redis support for Cachemix — full cache key enumeration via SCAN for Redis, Garnet and Valkey, parsing the Microsoft distributed-cache hash format (absexp / sldexp / data).</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Cachemix.Core/Cachemix.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StackExchange.Redis" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Cachemix.StackExchangeRedis.Tests" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,21 @@
+Cachemix
+Copyright (c) 2026 Suresh Subramanian
+
+This product is licensed under the MIT License. See the LICENSE file.
+
+------------------------------------------------------------------------
+Third-party components
+------------------------------------------------------------------------
+
+The Cachemix dashboard embeds the following third-party software:
+
+uPlot
+  A small, fast chart library for time-series data.
+  Copyright (c) Leon Sorokin
+  Licensed under the MIT License.
+  https://github.com/leeoniya/uPlot
+
+Microsoft SignalR JavaScript client (@microsoft/signalr)
+  Copyright (c) .NET Foundation and Contributors
+  Licensed under the MIT License.
+  https://github.com/dotnet/aspnetcore

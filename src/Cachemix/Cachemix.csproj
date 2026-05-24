@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>Cachemix</PackageId>
+    <Description>The complete Cachemix cache visualizer for .NET — a meta-package that brings in the interception engine, the HybridCache and Redis providers, and the /cachemix dashboard. Install this one package for the full experience; reference the individual Cachemix.* packages for a leaner footprint.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Cachemix.Core/Cachemix.Core.csproj" />
+    <ProjectReference Include="../Cachemix.Hybrid/Cachemix.Hybrid.csproj" />
+    <ProjectReference Include="../Cachemix.StackExchangeRedis/Cachemix.StackExchangeRedis.csproj" />
+    <ProjectReference Include="../Cachemix.AspNetCore/Cachemix.AspNetCore.csproj" />
+  </ItemGroup>
+
+</Project>

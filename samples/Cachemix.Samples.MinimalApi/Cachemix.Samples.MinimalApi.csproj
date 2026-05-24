@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- Microsoft.Extensions.Caching.Memory ships in the ASP.NET Core shared
+       framework, so a Web SDK project needs no explicit package reference. -->
+  <ItemGroup>
+    <ProjectReference Include="../../src/Cachemix.Core/Cachemix.Core.csproj" />
+    <ProjectReference Include="../../src/Cachemix.AspNetCore/Cachemix.AspNetCore.csproj" />
+  </ItemGroup>
+
+</Project>

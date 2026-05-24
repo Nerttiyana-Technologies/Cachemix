@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>Cachemix.AspNetCore</PackageId>
+    <Description>The Cachemix dashboard — self-contained ASP.NET Core middleware that serves the /cachemix cache visualizer over embedded assets and SignalR. No Razor Pages, no MVC, no CDN.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Cachemix.Core/Cachemix.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Dashboard UI assets are embedded into the assembly (populated in M3 / task 13). -->
+    <EmbeddedResource Include="assets/**/*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Cachemix.AspNetCore.Tests" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!--
+      Integration tests for the SCAN key provider. They run against a local Redis
+      or Valkey server when one is reachable, otherwise a throwaway container.
+      A single target framework is enough — there is nothing framework-specific
+      to verify here, and re-running on three would only slow CI.
+    -->
+    <TargetFrameworks>net10.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Throwaway Valkey container, used only when no local server is reachable. -->
+    <PackageReference Include="Testcontainers.Redis" />
+    <!-- Used directly to seed the keyspace in the Microsoft distributed-cache format. -->
+    <PackageReference Include="StackExchange.Redis" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../src/Cachemix.StackExchangeRedis/Cachemix.StackExchangeRedis.csproj" />
+  </ItemGroup>
+
+</Project>

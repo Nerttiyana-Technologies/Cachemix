@@ -1,0 +1,30 @@
+<Project>
+
+  <!--
+    Repository-wide build defaults.
+    Layer-specific props (src / tests / samples / benchmarks) import this file
+    via MSBuild::GetPathOfFileAbove and add their own settings on top.
+  -->
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <Deterministic>true</Deterministic>
+
+    <!-- Strict only in CI, so local iteration is not blocked by warnings. -->
+    <TreatWarningsAsErrors Condition="'$(GITHUB_ACTIONS)' == 'true'">true</TreatWarningsAsErrors>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <!-- Shared identity / metadata. Harmless on non-packable projects. -->
+  <PropertyGroup>
+    <Authors>Suresh Subramanian</Authors>
+    <Company>Cachemix</Company>
+    <Product>Cachemix</Product>
+    <Copyright>Copyright (c) 2026 Suresh Subramanian</Copyright>
+    <NeutralLanguage>en</NeutralLanguage>
+  </PropertyGroup>
+
+</Project>

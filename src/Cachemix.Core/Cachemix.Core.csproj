@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>Cachemix.Core</PackageId>
+    <Description>The Cachemix interception engine and telemetry pipeline for IMemoryCache and IDistributedCache. The headless core of Cachemix — usable from Worker and console apps without ASP.NET Core.</Description>
+    <IsTrimmable>true</IsTrimmable>
+    <IsAotCompatible>true</IsAotCompatible>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Cachemix.Abstractions/Cachemix.Abstractions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Options" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Cachemix.Hybrid" />
+    <InternalsVisibleTo Include="Cachemix.StackExchangeRedis" />
+    <InternalsVisibleTo Include="Cachemix.AspNetCore" />
+    <InternalsVisibleTo Include="Cachemix.Core.Tests" />
+    <InternalsVisibleTo Include="Cachemix.Benchmarks" />
+  </ItemGroup>
+
+</Project>

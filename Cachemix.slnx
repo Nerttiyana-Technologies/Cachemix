@@ -1,0 +1,44 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+    <File Path="nuget.config" />
+    <File Path="README.md" />
+    <File Path="CHANGELOG.md" />
+    <File Path="CONTRIBUTING.md" />
+    <File Path="SECURITY.md" />
+    <File Path="NOTICE" />
+  </Folder>
+  <Folder Name="/docs/">
+    <File Path="docs/architecture-and-roadmap.md" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Cachemix.Abstractions/Cachemix.Abstractions.csproj" />
+    <Project Path="src/Cachemix.Core/Cachemix.Core.csproj" />
+    <Project Path="src/Cachemix.Hybrid/Cachemix.Hybrid.csproj" />
+    <Project Path="src/Cachemix.StackExchangeRedis/Cachemix.StackExchangeRedis.csproj" />
+    <Project Path="src/Cachemix.AspNetCore/Cachemix.AspNetCore.csproj" />
+    <Project Path="src/Cachemix/Cachemix.csproj" />
+    <Project Path="src/Cachemix.Aspire/Cachemix.Aspire.csproj" />
+    <Project Path="src/Cachemix.Tool/Cachemix.Tool.csproj" />
+  </Folder>
+  <Folder Name="/samples/">
+    <File Path="samples/README.md" />
+    <File Path="samples/docker-compose.yml" />
+    <Project Path="samples/Cachemix.Samples.MinimalApi/Cachemix.Samples.MinimalApi.csproj" />
+    <Project Path="samples/Cachemix.Samples.MvcRedis/Cachemix.Samples.MvcRedis.csproj" />
+    <Project Path="samples/Cachemix.Samples.HybridCache/Cachemix.Samples.HybridCache.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Cachemix.Core.Tests/Cachemix.Core.Tests.csproj" />
+    <Project Path="tests/Cachemix.StackExchangeRedis.Tests/Cachemix.StackExchangeRedis.Tests.csproj" />
+    <Project Path="tests/Cachemix.AspNetCore.Tests/Cachemix.AspNetCore.Tests.csproj" />
+  </Folder>
+  <Folder Name="/benchmarks/">
+    <File Path="benchmarks/Directory.Build.props" />
+    <Project Path="benchmarks/Cachemix.Benchmarks/Cachemix.Benchmarks.csproj" />
+  </Folder>
+</Solution>

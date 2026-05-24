@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <!-- The DI implementation package — needed for BuildServiceProvider() in tests. -->
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../src/Cachemix.Core/Cachemix.Core.csproj" />
+  </ItemGroup>
+
+</Project>
