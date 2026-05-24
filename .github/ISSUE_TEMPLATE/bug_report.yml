@@ -1,0 +1,53 @@
+name: Bug report
+description: Report a problem with Cachemix
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to file a bug. Please fill in the details below.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the bug, including what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Minimal steps — ideally a small code snippet or sample project.
+    validations:
+      required: true
+  - type: dropdown
+    id: cache-type
+    attributes:
+      label: Cache type involved
+      options:
+        - IMemoryCache
+        - IDistributedCache (Redis / Garnet / Valkey)
+        - HybridCache
+        - Multiple / not sure
+    validations:
+      required: true
+  - type: input
+    id: cachemix-version
+    attributes:
+      label: Cachemix version
+    validations:
+      required: true
+  - type: dropdown
+    id: tfm
+    attributes:
+      label: Target framework
+      options:
+        - net8.0
+        - net9.0
+        - net10.0
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs or exceptions
+      render: shell

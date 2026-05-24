@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>Cachemix.Aspire</PackageId>
+    <Description>.NET Aspire integration for Cachemix. Wires the Cachemix OpenTelemetry meter into an Aspire application's metrics pipeline so cache hit, miss, set and eviction metrics surface in the Aspire dashboard. Add it to your ServiceDefaults alongside AddServiceDefaults().</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Cachemix.Abstractions/Cachemix.Abstractions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" />
+    <PackageReference Include="OpenTelemetry.Extensions.Hosting" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!--
+      The ASP.NET Core 10 test packages (Microsoft.AspNetCore.Mvc.Testing) ship
+      for net10.0 only, so these in-memory dashboard tests target net10.0. They
+      exercise the dashboard's HTTP surface, which is framework-version agnostic.
+    -->
+    <TargetFrameworks>net10.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- TestServer + WebApplicationFactory for in-memory HTTP integration tests. -->
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../src/Cachemix.AspNetCore/Cachemix.AspNetCore.csproj" />
+  </ItemGroup>
+
+</Project>

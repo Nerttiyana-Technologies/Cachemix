@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="__cachemix_base__/" />
+  <title>Cachemix</title>
+  <link rel="stylesheet" href="assets/cachemix.css" />
+</head>
+<body>
+  <header class="cmx-header">
+    <div class="cmx-brand">
+      <span class="cmx-logo" aria-hidden="true">◆</span>
+      <span class="cmx-title">Cachemix</span>
+    </div>
+    <div class="cmx-header-actions">
+      <span id="cmx-status" class="cmx-status cmx-status--off" role="status">connecting…</span>
+      <button id="cmx-theme" type="button" class="cmx-btn" aria-label="Toggle dark and light theme">Theme</button>
+    </div>
+  </header>
+
+  <main class="cmx-main">
+    <section class="cmx-kpis" id="cmx-kpis" aria-label="Key metrics"></section>
+
+    <section class="cmx-row">
+      <div class="cmx-panel cmx-panel--chart">
+        <h2 class="cmx-panel-title">Hit ratio over time</h2>
+        <canvas id="cmx-chart" class="cmx-chart" width="820" height="200"
+                aria-label="Cache hit ratio over time"></canvas>
+      </div>
+      <div class="cmx-panel cmx-panel--health">
+        <h2 class="cmx-panel-title">Cache health</h2>
+        <div id="cmx-health" class="cmx-health"></div>
+      </div>
+    </section>
+
+    <section class="cmx-panel" id="cmx-tags-panel" hidden>
+      <div class="cmx-panel-head">
+        <h2 class="cmx-panel-title" id="cmx-tags-title">Tags</h2>
+        <button id="cmx-tags-clear" type="button" class="cmx-btn" hidden>Clear tag filter</button>
+      </div>
+      <div class="cmx-tags" id="cmx-tags" aria-label="Cache tags"></div>
+    </section>
+
+    <section class="cmx-panel">
+      <div class="cmx-panel-head">
+        <h2 class="cmx-panel-title" id="cmx-keys-title">Keys</h2>
+        <input id="cmx-search" class="cmx-search" type="search"
+               placeholder="Filter keys…" aria-label="Filter keys" />
+      </div>
+      <div class="cmx-table-wrap">
+        <table class="cmx-table">
+          <thead>
+            <tr>
+              <th scope="col" data-sort="key" tabindex="0">Key</th>
+              <th scope="col" data-sort="cacheName" tabindex="0">Cache</th>
+              <th scope="col" data-sort="valueTypeName" tabindex="0">Type</th>
+              <th scope="col" data-sort="estimatedSizeBytes" tabindex="0" class="cmx-num">Size</th>
+              <th scope="col" data-sort="hitCount" tabindex="0" class="cmx-num">Hits</th>
+              <th scope="col" data-sort="absoluteExpirationUtc" tabindex="0">Expires</th>
+              <th scope="col" aria-label="Actions"></th>
+            </tr>
+          </thead>
+          <tbody id="cmx-rows"></tbody>
+        </table>
+      </div>
+      <p class="cmx-empty" id="cmx-keys-empty" hidden>No cache entries observed yet.</p>
+    </section>
+
+    <section class="cmx-panel">
+      <h2 class="cmx-panel-title">Recent events</h2>
+      <ul class="cmx-events" id="cmx-events" aria-live="polite"></ul>
+      <p class="cmx-empty" id="cmx-events-empty" hidden>No cache events recorded yet.</p>
+    </section>
+
+    <section class="cmx-panel" id="cmx-diff-panel" hidden>
+      <div class="cmx-panel-head">
+        <h2 class="cmx-panel-title" id="cmx-diff-title">Instance diff</h2>
+        <button id="cmx-diff-refresh" type="button" class="cmx-btn">Refresh</button>
+      </div>
+      <div class="cmx-diff-instances" id="cmx-diff-instances" aria-label="Compared instances"></div>
+      <div class="cmx-table-wrap">
+        <table class="cmx-table cmx-diff-table" id="cmx-diff-table" hidden>
+          <thead><tr id="cmx-diff-head"></tr></thead>
+          <tbody id="cmx-diff-rows"></tbody>
+        </table>
+      </div>
+      <p class="cmx-empty" id="cmx-diff-empty" hidden></p>
+    </section>
+  </main>
+
+  <footer class="cmx-footer">
+    <span>Cachemix — cache visualizer</span>
+    <span id="cmx-updated"></span>
+  </footer>
+
+  <dialog id="cmx-inspector" class="cmx-inspector" aria-labelledby="cmx-inspector-key">
+    <div class="cmx-inspector-head">
+      <div>
+        <div class="cmx-inspector-label">Value inspector</div>
+        <div id="cmx-inspector-key" class="cmx-inspector-key cmx-key"></div>
+      </div>
+      <button id="cmx-inspector-close" type="button" class="cmx-btn"
+              aria-label="Close value inspector">Close</button>
+    </div>
+    <div id="cmx-inspector-meta" class="cmx-inspector-meta"></div>
+    <pre id="cmx-inspector-body" class="cmx-inspector-body cmx-inspector-note"
+         tabindex="0" aria-live="polite"></pre>
+  </dialog>
+
+  <script src="assets/cachemix.js" defer></script>
+</body>
+</html>

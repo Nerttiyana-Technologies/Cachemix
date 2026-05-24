@@ -1,0 +1,9 @@
+# Redis for the Cachemix distributed-cache sample (Cachemix.Samples.MvcRedis).
+#   docker compose -f samples/docker-compose.yml up -d
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: cachemix-sample-redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Cachemix.Benchmarks</RootNamespace>
+    <AssemblyName>Cachemix.Benchmarks</AssemblyName>
+
+    <!--
+      The benchmark classes intentionally own disposable caches (torn down in
+      [GlobalCleanup], which the analyzers cannot see) and expose public
+      benchmark methods; suppress the analyzer noise that follows from that.
+    -->
+    <NoWarn>$(NoWarn);CA1001;CA1822</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../src/Cachemix.Core/Cachemix.Core.csproj" />
+  </ItemGroup>
+
+</Project>

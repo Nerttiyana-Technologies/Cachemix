@@ -1,0 +1,62 @@
+name: release
+
+# Publishes the Cachemix packages to NuGet.org when a GitHub Release is published.
+# MinVer derives the package version from the release tag (for example, tag
+# "v1.2.3" produces package version 1.2.3).
+#
+# Authentication uses an API key stored as the NUGET_API_KEY secret. To switch
+# to NuGet.org Trusted Publishing (OIDC, no stored secret — the recommended
+# approach in docs/architecture-and-roadmap.md):
+#   1. Configure a trusted publishing policy for this repository on nuget.org.
+#   2. Add `permissions: id-token: write` to this job.
+#   3. Replace the "Push to NuGet.org" step with the NuGet/login action to
+#      exchange the OIDC token for a short-lived API key.
+
+on:
+  release:
+    types: [ published ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    # Add a protection rule to this environment for a manual approval gate.
+    environment: nuget
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # MinVer needs full history and tags
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            9.0.x
+            10.0.x
+
+      - name: Restore
+        run: dotnet restore Cachemix.slnx
+
+      - name: Build
+        run: dotnet build Cachemix.slnx --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test Cachemix.slnx --configuration Release --no-build
+
+      - name: Pack
+        run: dotnet pack Cachemix.slnx --configuration Release --no-build --output artifacts
+
+      - name: Push to NuGet.org
+        run: >
+          dotnet nuget push "artifacts/*.nupkg"
+          --api-key "${{ secrets.NUGET_API_KEY }}"
+          --source https://api.nuget.org/v3/index.json
+          --skip-duplicate
+
+      - name: Attach packages to the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${{ github.event.release.tag_name }}" artifacts/*.nupkg artifacts/*.snupkg
