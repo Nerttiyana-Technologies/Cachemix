@@ -7,7 +7,6 @@ to debug. Cachemix mounts a live dashboard at `/cachemix` inside your own app so
 you can see every cache key, its size, its expiration, and whether your app is
 actually *hitting* the cache or quietly repeating the same database trip.
 
-> **Status:** pre-1.0, under active development. APIs may change before 1.0.
 
 ## Highlights
 
