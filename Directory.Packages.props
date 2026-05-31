@@ -16,7 +16,7 @@
     <PackageVersion Include="Microsoft.Extensions.Options" Version="10.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="10.0.0" />
-    <PackageVersion Include="StackExchange.Redis" Version="2.8.24" />
+    <PackageVersion Include="StackExchange.Redis" Version="2.13.17" />
     <PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="1.15.3" />
   </ItemGroup>
   <!-- Build / tooling -->
