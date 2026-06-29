@@ -1,4 +1,9 @@
-# Cachemix
+
+<div align="center">
+
+<img src="header.png" alt="In-memory, Redis & HybridCache visualizer for .NET" />
+
+</div>
 
 **In-memory, Redis & HybridCache visualizer for .NET.**
 
